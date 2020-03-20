@@ -25,9 +25,9 @@ download()
         echo "downloading Helm CLI" 
         curl -kLo helm-win-amd64-v2.12.3.tar.gz https://icp-console.mcmmah-105400-0143c5dd31acd8e030a1d6e0ab1380e3-0001.us-east.containers.appdomain.cloud:443/api/cli/helm-$2.tar.gz
         echo "downloading Istio CLI" 
-        curl -kLo istioctl-win-amd64-v1.2.2.exe https://icp-console.mcmmah-105400-0143c5dd31acd8e030a1d6e0ab1380e3-0001.us-east.containers.appdomain.cloud:443/api/cli/istioctl-$2.exe
+        curl -kLo istioctl-win-amd64-v1.2.2.exe https://icp-console.mcmmah-105400-0143c5dd31acd8e030a1d6e0ab1380e3-0001.us-east.containers.appdomain.cloud:443/api/cli/istioctl-$2
         echo "downloading Calico CLI" 
-        curl -kLo calicoctl-win-amd64-v3.5.2.exe https://icp-console.mcmmah-105400-0143c5dd31acd8e030a1d6e0ab1380e3-0001.us-east.containers.appdomain.cloud:443/api/cli/calicoctl-$2.exe                   
+        curl -kLo calicoctl-win-amd64-v3.5.2.exe https://icp-console.mcmmah-105400-0143c5dd31acd8e030a1d6e0ab1380e3-0001.us-east.containers.appdomain.cloud:443/api/cli/calicoctl-$2                  
     fi
 }
 
