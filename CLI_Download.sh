@@ -5,8 +5,6 @@ download()
 {
     url="https://icp-console.mcmmah-105400-0143c5dd31acd8e030a1d6e0ab1380e3-0001.us-east.containers.appdomain.cloud:443/api/cli/"
     if [[ $1 == "1" ]];then 
-        echo "$1"
-        echo "win"
         echo "downloading IBM Cloud Pak CLI" 
         curl -kLo cloudctl-win-amd64-v3.2.3-1557.exe "${url}cloudctl-${2}.exe"
         echo "downloading Kubernetes CLI" 
@@ -19,8 +17,6 @@ download()
         curl -kLo calicoctl-win-amd64-v3.5.2.exe "${url}calicoctl-${2}.exe"
 
     else
-        echo "$1"
-        echo "non"
         echo "downloading IBM Cloud Pak CLI" 
         curl -kLo cloudctl-${2}-v3.2.3-1557 "${url}cloudctl-${2}"
         echo "downloading Kubernetes CLI" 
