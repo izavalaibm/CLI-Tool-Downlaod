@@ -38,7 +38,7 @@ opt()
     echo "3. Download for Linux (64-bit)"
     echo "4. Download for Linux(ppc64le)"
     echo "5. Download for Linux(s390x)"
-    echo "6. Exit wihtout download"
+    echo "6. Exit without download"
     read -p "Please select a number: " yn
             case $yn in
             [1] ) 
