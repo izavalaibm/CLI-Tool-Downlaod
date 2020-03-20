@@ -43,12 +43,16 @@ opt()
     read -p "Please select a number: " yn
             case $yn in
             [1] ) 
+                echo "Downlaod for Mac CLI"
                 download 2 darwin-amd64 exit ;;
             [2] ) 
+                echo "Downlaod CLI for Windows(64-bit)"
                 download 1 win-amd64 exit ;;
-            [3] ) 
+            [3] )
+                echo "Download CLI for Linux (64-bit)" 
                 download 2 linux-amd64 exit ;;   
             [4] ) 
+                echo "Downlaod for Linux(ppc64le)"
                 download 2 linux-ppc64le exit ;; 
             [5] ) 
                 download 2 linux-s390x exit ;;
