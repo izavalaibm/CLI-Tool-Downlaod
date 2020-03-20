@@ -93,15 +93,21 @@ case "${unameOut}" in
         * ) echo "Please answer yes or no." exit;;
         esac
     ;;
-    MINGW64*)     
-    read -p "Do you wish to install CLI for Windows(64-bit)?" yn
-        case $yn in
-        [Yy]* ) 
-            download 1 win-amd64 exit ;;
-        [Nn]* ) 
-            opt ;;
-        * ) echo "Please answer yes or no." exit;;
-        esac
+    MSYS_NT*)  
+    minV="$(uname -m)"   
+    if [[ $minV == *"x86_64"* ]];then 
+        read -p "Do you wish to install CLI for Windows(64-bit)?" yn
+            case $yn in
+            [Yy]* ) 
+                download 1 win-amd64 exit ;;
+            [Nn]* ) 
+                opt ;;
+            * ) echo "Please answer yes or no." exit;;
+            esac
+    else
+        echo "Local Microsoft version not supported" 
+        opt 
+    fi
     ;;
     *)          
         echo "Local OS not recognized or unsuported"
