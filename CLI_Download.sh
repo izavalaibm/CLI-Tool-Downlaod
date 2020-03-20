@@ -3,58 +3,60 @@
 ## Curl commands for each OS
 download()
 {
+    url="https://icp-console.mcmmah-105400-0143c5dd31acd8e030a1d6e0ab1380e3-0001.us-east.containers.appdomain.cloud:443/api/cli/"
     if [[ $1 == "1" ]];then 
         
         echo "downloading IBM Cloud Pak CLI" 
-        curl -kLo cloudctl-win-amd64-v3.2.3-1557.exe https://icp-console.mcmmah-105400-0143c5dd31acd8e030a1d6e0ab1380e3-0001.us-east.containers.appdomain.cloud:443/api/cli/cloudctl-$2.exe
+        curl -kLo cloudctl-win-amd64-v3.2.3-1557.exe "${url}cloudctl-${2}.exe"
         echo "downloading Kubernetes CLI" 
-        curl -kLo kubectl-win-amd64-v1.13.11.exe     https://icp-console.mcmmah-105400-0143c5dd31acd8e030a1d6e0ab1380e3-0001.us-east.containers.appdomain.cloud:443/api/cli/kubectl-$2.exe
+        curl -kLo kubectl-win-amd64-v1.13.11.exe     "${url}kubectl-${2}.exe"
         echo "downloading Helm CLI" 
-        curl -kLo helm-win-amd64-v2.12.3.tar.gz https://icp-console.mcmmah-105400-0143c5dd31acd8e030a1d6e0ab1380e3-0001.us-east.containers.appdomain.cloud:443/api/cli/helm-$2.tar.gz
+        curl -kLo helm-win-amd64-v2.12.3.tar.gz "${url}helm-${2}.tar.gz"
         echo "downloading Istio CLI" 
-        curl -kLo istioctl-win-amd64-v1.2.2.exe https://icp-console.mcmmah-105400-0143c5dd31acd8e030a1d6e0ab1380e3-0001.us-east.containers.appdomain.cloud:443/api/cli/istioctl-$2.exe
+        curl -kLo istioctl-win-amd64-v1.2.2.exe "${url}istioctl-${2}.exe"
         echo "downloading Calico CLI" 
-        curl -kLo calicoctl-win-amd64-v3.5.2.exe https://icp-console.mcmmah-105400-0143c5dd31acd8e030a1d6e0ab1380e3-0001.us-east.containers.appdomain.cloud:443/api/cli/calicoctl-$2.exe
+        curl -kLo calicoctl-win-amd64-v3.5.2.exe "${url}calicoctl-${2}.exe"
 
     else
         
         echo "downloading IBM Cloud Pak CLI" 
-        curl -kLo cloudctl-win-amd64-v3.2.3-1557.exe https://icp-console.mcmmah-105400-0143c5dd31acd8e030a1d6e0ab1380e3-0001.us-east.containers.appdomain.cloud:443/api/cli/cloudctl-$2
+        curl -kLo cloudctl-win-amd64-v3.2.3-1557.exe "${url}cloudctl-${2}"
         echo "downloading Kubernetes CLI" 
-        curl -kLo kubectl-win-amd64-v1.13.11.exe     https://icp-console.mcmmah-105400-0143c5dd31acd8e030a1d6e0ab1380e3-0001.us-east.containers.appdomain.cloud:443/api/cli/kubectl-$2
+        curl -kLo kubectl-win-amd64-v1.13.11.exe     "${url}kubectl-${2}"
         echo "downloading Helm CLI" 
-        curl -kLo helm-win-amd64-v2.12.3.tar.gz https://icp-console.mcmmah-105400-0143c5dd31acd8e030a1d6e0ab1380e3-0001.us-east.containers.appdomain.cloud:443/api/cli/helm-$2.tar.gz
+        curl -kLo helm-win-amd64-v2.12.3.tar.gz "${url}helm-${2}.tar.gz"
         echo "downloading Istio CLI" 
-        curl -kLo istioctl-win-amd64-v1.2.2.exe https://icp-console.mcmmah-105400-0143c5dd31acd8e030a1d6e0ab1380e3-0001.us-east.containers.appdomain.cloud:443/api/cli/istioctl-$2
+        curl -kLo istioctl-win-amd64-v1.2.2.exe "${url}istioctl-${2}"
         echo "downloading Calico CLI" 
-        curl -kLo calicoctl-win-amd64-v3.5.2.exe https://icp-console.mcmmah-105400-0143c5dd31acd8e030a1d6e0ab1380e3-0001.us-east.containers.appdomain.cloud:443/api/cli/calicoctl-$2                  
+        curl -kLo calicoctl-win-amd64-v3.5.2.exe "${url}calicoctl-${2}"                 
     fi
 }
 
 opt()
 {
     echo "What would you like to do?"
-    echo "1. Downlaod for Mac"
-    echo "2. Downlaod for Windows(64-bit)"
-    echo "3. Downlaod for Linux (64-bit)"
-    echo "4. Downlaod for Linux(ppc64le)"
-    echo "5. Downlaod for Linux(s390x)"
+    echo "1. Download for Mac"
+    echo "2. Download for Windows(64-bit)"
+    echo "3. Download for Linux (64-bit)"
+    echo "4. Download for Linux(ppc64le)"
+    echo "5. Download for Linux(s390x)"
     echo "6. Exit wihtout download"
     read -p "Please select a number: " yn
             case $yn in
             [1] ) 
-                echo "Downlaod for Mac CLI"
+                echo "Downloading CLI for Mac"
                 download 2 darwin-amd64 exit ;;
             [2] ) 
-                echo "Downlaod CLI for Windows(64-bit)"
+                echo "Downloading CLI for Windows(64-bit)"
                 download 1 win-amd64 exit ;;
             [3] )
-                echo "Download CLI for Linux (64-bit)" 
+                echo "Downloading CLI for Linux (64-bit)" 
                 download 2 linux-amd64 exit ;;   
             [4] ) 
-                echo "Downlaod for Linux(ppc64le)"
+                echo "Downloading CLI for Linux(ppc64le)"
                 download 2 linux-ppc64le exit ;; 
-            [5] ) 
+            [5] )
+                echo "Downloading CLI for Linux(s390x)" 
                 download 2 linux-s390x exit ;;
             [6] ) 
                 echo "Exiting without downloading" exit ;;
