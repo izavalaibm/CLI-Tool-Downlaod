@@ -95,7 +95,8 @@ opt()
             esac
 }
 
-## Gets OS, if 
+## Gets OS, if OS is supported it will download the needed CLI. If not suported or user wants to download a specific 
+## OS they can download it by selecting which they want to
 unameOut="$(uname -s)"
 case "${unameOut}" in
     Linux*)
