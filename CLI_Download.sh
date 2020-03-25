@@ -18,7 +18,8 @@ download()
         echo "downloading Calico CLI" 
         curl -kLo calicoctl.exe "${url}calicoctl-${2}.exe"
         echo "downloading OpenShift Client CLI"
-        curl -kLo oc "${ocUrl}/windows/oc.zip"
+        curl -kLo oc.zip "${ocUrl}/windows/oc.zip"
+        tar -zxvf helm.tar.gz 
 
     else
         echo "downloading IBM Cloud Pak CLI" 
