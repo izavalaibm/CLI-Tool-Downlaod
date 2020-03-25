@@ -17,7 +17,7 @@ download()
         curl -kLo istioctl.exe "${url}istioctl-${2}.exe"
         echo "downloading Calico CLI" 
         curl -kLo calicoctl.exe "${url}calicoctl-${2}.exe"
-        echo "downloading oc CLI"
+        echo "downloading OpenShift Client CLI"
         curl -kLo oc "${ocUrl}/windows/oc.zip"
 
     else
