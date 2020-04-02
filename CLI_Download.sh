@@ -44,7 +44,7 @@ download()
             sudo mv linux-amd64/helm /usr/local/bin/helm
             rm -rf linux-amd64
         else 
-            curl -kLo oc.tar.gz "${url}/oc-darwin-amd64" 
+            curl -kLo oc "${url}/oc-darwin-amd64" 
             chmod 775 darwin-amd64
             sudo mv darwin-amd64/helm /usr/local/bin/helm
             rm -rf darwin-amd64
