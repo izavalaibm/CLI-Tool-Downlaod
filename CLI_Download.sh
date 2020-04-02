@@ -21,7 +21,7 @@ download()
         echo "downloading Calico CLI" 
         curl -kLo calicoctl.exe "${url}calicoctl-${2}.exe"
         echo "downloading OpenShift Client CLI"
-        curl -kLo oc.zip "${url}/oc-windows.exe" 
+        curl -kLo oc.exe "${url}/oc-windows.exe" 
         tar -zxvf helm.tar.gz 
         rm helm.tar.gz 
 
@@ -39,7 +39,7 @@ download()
         curl -kLo calicoctl "${url}calicoctl-${2}" 
         echo "downloading OpenShift Client CLI"
         if [[ $1 == "3" ]];then
-            curl -kLo oc.tar.gz "${url}oc-linux-amd64" 
+            curl -kLo oc "${url}oc-linux-amd64" 
             linux-amd64/helm
             sudo mv linux-amd64/helm /usr/local/bin/helm
             rm -rf linux-amd64
