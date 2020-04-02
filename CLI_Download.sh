@@ -3,10 +3,13 @@
 ## Curl commands for each OS
 download()
 {
+    ## Cluster URL where cloudctl, kubectl, helm, istioctl and calicoctl will be downloaded from
     url="https://icp-console.mcmmah-105400-0143c5dd31acd8e030a1d6e0ab1380e3-0001.us-east.containers.appdomain.cloud:443/api/cli/"
-    ocUrl="https://mirror.openshift.com/pub/openshift-v4/clients/oc/latest"
+    ## Openshift Client cli url for latest version if you would like to use cluster cli version
+    #ocUrl="https://mirror.openshift.com/pub/openshift-v4/clients/oc/latest"
 
-    if [[ $1 == "1" ]];then 
+    ## 1 indicates Windows, 2 indicates Mac and 3 indicates Linux
+    if [[ $1 == "1" ]];then  
         echo "downloading IBM Cloud Pak CLI" 
         curl -kLo cloudctl.exe "${url}cloudctl-${2}.exe"
         echo "downloading Kubernetes CLI" 
@@ -18,8 +21,9 @@ download()
         echo "downloading Calico CLI" 
         curl -kLo calicoctl.exe "${url}calicoctl-${2}.exe"
         echo "downloading OpenShift Client CLI"
-        curl -kLo oc.zip "${ocUrl}/windows/oc.zip"
+        curl -kLo oc.zip "${url}/oc-windows.exe" 
         tar -zxvf helm.tar.gz 
+        rm helm.tar.gz 
 
     else
         echo "downloading IBM Cloud Pak CLI" 
@@ -35,18 +39,18 @@ download()
         curl -kLo calicoctl "${url}calicoctl-${2}" 
         echo "downloading OpenShift Client CLI"
         if [[ $1 == "3" ]];then
-            curl -kLo oc.tar.gz "${ocUrl}/linux/oc.tar.gz"
+            curl -kLo oc.tar.gz "${url}oc-linux-amd64" 
             linux-amd64/helm
             sudo mv linux-amd64/helm /usr/local/bin/helm
             rm -rf linux-amd64
         else 
-            curl -kLo oc.tar.gz "${ocUrl}/macosx/oc.tar.gz"
+            curl -kLo oc.tar.gz "${url}/oc-darwin-amd64" 
             chmod 775 darwin-amd64
             sudo mv darwin-amd64/helm /usr/local/bin/helm
             rm -rf darwin-amd64
             
         fi
-        tar -zxvf oc.tar.gz
+        
         chmod 755 cloudctl oc kubectl istioctl calicoctl     
         sudo mv oc /usr/local/bin/oc
         sudo mv cloudctl /usr/local/bin/cloudctl   
@@ -60,12 +64,12 @@ download()
 }
 
 
-## Gets OS, if OS is supported it will download the needed CLI. If not suported or user wants to download a specific 
-## OS they can download it by selecting which OS they want to dowload the CLI for
+## Gets OS, if OS is supported it will download the needed CLI. If local OS is not supported a message will be displayed
 unameOut="$(uname -s)"
 case "${unameOut}" in
     Linux*)
     linV="$(uname -p)"
+    
     if [[ $linV == *"x86_64"* ]];then
         echo "Installing CLI for Linux"  
         download 3 linux-amd64 exit 
