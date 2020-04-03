@@ -39,11 +39,10 @@ download()
         curl -kLo calicoctl "${url}calicoctl-${2}" 
         echo "downloading OpenShift Client CLI"
             if [[ $1 == "3" ]];then
-
-            curl -kLo oc "${url}oc-linux-amd64"
             chmod 775 linux-amd64/helm
             sudo mv linux-amd64/helm /usr/local/bin/helm
             rm -rf linux-amd64
+            curl -kLo oc "${url}oc-linux-amd64"
         else 
             curl -kLo oc "${url}oc-darwin-amd64" 
             chmod 775 darwin-amd64/helm
