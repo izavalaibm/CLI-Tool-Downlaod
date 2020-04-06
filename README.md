@@ -1,9 +1,9 @@
 # Cloud Pack CLI Tool Downlaod
 
-Use the following bash scrip to download the following CLI tools; IBM Cloud Pak CLI, Kubernetes CLI, Helm CLI, Istio CLI, Calico CLI,OpenShift Client CLI. These tools will allow you to work with your IBM Cloud Pak for Multicloud Management. 
+Use the following bash script to download the following CLI tools; IBM Cloud Pak CLI, Kubernetes CLI, Helm CLI, Istio CLI, Calico CLI and OpenShift Client CLI. These tools will allow you to work with your IBM Cloud Pak for Multicloud Management. The script will automatically detect if you are running a Linux, Mac or Windows enviroment and will dowload the approprate packates. 
 
 
-## Linux and Mac insturctions. 
+## Linux and Mac insturctions 
 
 You can run the following command in your terminal to download the the needed CLI: 
 
@@ -11,7 +11,7 @@ You can run the following command in your terminal to download the the needed CL
 bash <(curl -L http://ibm.biz/kubecli)
 ```
 
-This will download the needed files and place them under you /usr/local/bin/ directory. Once downloaded you will be able to use the CLI in your system. 
+This will download the needed files and place them under you /usr/local/bin/ directory. Once downloaded you will be able these CLI tools for your system your system. 
 
 ## Windows instructions 
 
